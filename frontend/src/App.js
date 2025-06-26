@@ -39,7 +39,7 @@ const App = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex justify-center mb-8">
             <img 
-              src="https://github.com/user-attachments/assets/df89cc9f-23c1-4b12-aee7-8d7c78987e31" 
+              src="\kemya.png" 
               alt="Kenya Malaria Youth Corps Logo"
               className="w-24 h-24 md:w-32 md:h-32 object-contain animate-pulse-custom"
             />
@@ -83,7 +83,7 @@ const App = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-3">
             <img 
-              src="https://github.com/user-attachments/assets/df89cc9f-23c1-4b12-aee7-8d7c78987e31" 
+              src="/kemya.png" 
               alt="Kenya Malaria Youth Corps Logo"
               className="w-12 h-12 object-contain"
             />
@@ -551,21 +551,21 @@ const App = () => {
             {
               title: '10 Ways to Prevent Malaria in Your Community',
               excerpt: 'Learn practical prevention methods that every family should know to protect against malaria.',
-              date: 'March 10, 2024',
+              date: 'March 10, 2025',
               category: 'Health Tips',
               image: 'https://images.unsplash.com/photo-1586027968952-60cab15e475a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxtYWxhcmlhJTIwcHJldmVudGlvbiUyMHZvbHVudGVlcnN8ZW58MHx8fGdyZWVufDE3NTA5Mjc2MDZ8MA&ixlib=rb-4.1.0&q=85'
             },
             {
               title: 'Success Story: Kibera Youth Malaria Champions',
               excerpt: 'How young volunteers in Kibera reduced malaria cases by 40% through community education.',
-              date: 'March 8, 2024',
+              date: 'March 8, 2025',
               category: 'Success Stories',
               image: 'https://images.pexels.com/photos/5878507/pexels-photo-5878507.jpeg'
             },
             {
-              title: 'Upcoming: World Malaria Day 2024',
+              title: 'Upcoming: World Malaria Day 2025',
               excerpt: 'Join us for nationwide events and activities as we commemorate World Malaria Day.',
-              date: 'March 5, 2024',
+              date: 'March 5, 2025',
               category: 'Events',
               image: 'https://images.unsplash.com/photo-1648731232061-b5016716fcb6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHwyfHx5b3V0aCUyMGFjdGl2aXNtJTIwQWZyaWNhfGVufDB8fHxncmVlbnwxNzUwOTI3NTkxfDA&ixlib=rb-4.1.0&q=85'
             }
@@ -623,171 +623,171 @@ const App = () => {
 
     return (
       <section id="contact" className={`py-20 ${darkMode ? 'bg-gray-900' : 'bg-gradient-to-br from-green-50 to-red-50'}`}>
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className={`text-4xl lg:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-              Get In <span className="text-red-600">Touch</span>
-            </h2>
-            <p className={`text-xl max-w-3xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-              Have questions or want to collaborate? We'd love to hear from you.
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-12">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+        <h2 className={`text-4xl lg:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+          Get In <span className="text-red-600">Touch</span>
+        </h2>
+        <p className={`text-xl max-w-3xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+          Have questions or want to collaborate? We'd love to hear from you.
+        </p>
+        </div>
+        
+        <div className="grid lg:grid-cols-2 gap-12">
+        <div>
+          <form onSubmit={handleContactSubmit} className={`p-8 rounded-2xl ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-2xl`}>
+          <div className="space-y-6">
             <div>
-              <form onSubmit={handleContactSubmit} className={`p-8 rounded-2xl ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-2xl`}>
-                <div className="space-y-6">
-                  <div>
-                    <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={contactForm.name}
-                      onChange={handleContactChange}
-                      required
-                      className={`w-full px-4 py-3 rounded-lg border ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'} focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200`}
-                      placeholder="Your name"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={contactForm.email}
-                      onChange={handleContactChange}
-                      required
-                      className={`w-full px-4 py-3 rounded-lg border ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'} focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200`}
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                      Subject *
-                    </label>
-                    <input
-                      type="text"
-                      name="subject"
-                      value={contactForm.subject}
-                      onChange={handleContactChange}
-                      required
-                      className={`w-full px-4 py-3 rounded-lg border ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'} focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200`}
-                      placeholder="Message subject"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                      Message *
-                    </label>
-                    <textarea
-                      name="message"
-                      value={contactForm.message}
-                      onChange={handleContactChange}
-                      required
-                      rows={5}
-                      className={`w-full px-4 py-3 rounded-lg border ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'} focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200`}
-                      placeholder="Your message"
-                    ></textarea>
-                  </div>
-                  
-                  <button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-green-600 to-red-600 hover:from-green-700 hover:to-red-700 text-white py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </form>
+            <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              Name *
+            </label>
+            <input
+              type="text"
+              name="name"
+              value={contactForm.name}
+              onChange={handleContactChange}
+              required
+              className={`w-full px-4 py-3 rounded-lg border ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'} focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200`}
+              placeholder="Your name"
+            />
             </div>
             
-            <div className="space-y-8">
-              <div>
-                <h3 className={`text-3xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-                  Contact Information
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>Email</div>
-                      <a 
-                        href="mailto:info@malariayouth.ke"
-                        className={`${darkMode ? 'text-gray-300 hover:text-green-400' : 'text-gray-600 hover:text-green-600'} transition-colors duration-200`}
-                      >
-                        info@malariayouth.ke
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>Phone</div>
-                      <a 
-                        href="tel:+254706655274"
-                        className={`${darkMode ? 'text-gray-300 hover:text-green-400' : 'text-gray-600 hover:text-green-600'} transition-colors duration-200`}
-                      >
-                        +254 706 655 274
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>Address</div>
-                      <div className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>Nairobi, Kenya</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-                  Follow Us
-                </h3>
-                <div className="flex space-x-4">
-                  {[
-                    { name: 'Facebook', icon: '📘', url: '#' },
-                    { name: 'Twitter', icon: '🐦', url: '#' },
-                    { name: 'Instagram', icon: '📸', url: '#' },
-                    { name: 'LinkedIn', icon: '💼', url: 'https://www.linkedin.com/company/kenya-malaria-youth-corps/' }
-                  ].map((social, index) => (
-                    <a
-                      key={index}
-                      href={social.url}
-                      target={social.name === 'LinkedIn' ? '_blank' : '_self'}
-                      rel={social.name === 'LinkedIn' ? 'noopener noreferrer' : ''}
-                      className={`w-12 h-12 rounded-full ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-100 hover:bg-gray-200'} flex items-center justify-center transition-all duration-200 transform hover:scale-110`}
-                    >
-                      <span className="text-xl">{social.icon}</span>
-                    </a>
-                  ))}
-                </div>
-              </div>
+            <div>
+            <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              Email *
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={contactForm.email}
+              onChange={handleContactChange}
+              required
+              className={`w-full px-4 py-3 rounded-lg border ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'} focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200`}
+              placeholder="your.email@example.com"
+            />
+            </div>
+            
+            <div>
+            <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              Subject *
+            </label>
+            <input
+              type="text"
+              name="subject"
+              value={contactForm.subject}
+              onChange={handleContactChange}
+              required
+              className={`w-full px-4 py-3 rounded-lg border ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'} focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200`}
+              placeholder="Message subject"
+            />
+            </div>
+            
+            <div>
+            <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              Message *
+            </label>
+            <textarea
+              name="message"
+              value={contactForm.message}
+              onChange={handleContactChange}
+              required
+              rows={5}
+              className={`w-full px-4 py-3 rounded-lg border ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'} focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200`}
+              placeholder="Your message"
+            ></textarea>
+            </div>
+            
+            <button
+            type="submit"
+            className="w-full bg-gradient-to-r from-green-600 to-red-600 hover:from-green-700 hover:to-red-700 text-white py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+            >
+            Send Message
+            </button>
+          </div>
+          </form>
+        </div>
+        
+        <div className="space-y-8">
+          <div>
+          <h3 className={`text-3xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            Contact Information
+          </h3>
+          <div className="space-y-4">
+            <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div>
+              <div className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>Email</div>
+              <a 
+              href="mailto:info@malariayouth.ke"
+              className={`${darkMode ? 'text-gray-300 hover:text-green-400' : 'text-gray-600 hover:text-green-600'} transition-colors duration-200`}
+              >
+              info@malariayouth.ke
+              </a>
+            </div>
+            </div>
+            
+            <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </div>
+            <div>
+              <div className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>Phone</div>
+              <a 
+              href="tel:+254706655274"
+              className={`${darkMode ? 'text-gray-300 hover:text-green-400' : 'text-gray-600 hover:text-green-600'} transition-colors duration-200`}
+              >
+              +254 706 655 274
+              </a>
+            </div>
+            </div>
+            
+            <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div>
+              <div className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>Address</div>
+              <div className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>Nairobi, Kenya</div>
+            </div>
             </div>
           </div>
+          </div>
+          
+          <div>
+          <h3 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            Follow Us
+          </h3>
+          <div className="flex space-x-4">
+            {[
+            { name: 'Facebook', icon: <img src="/facebook.png" alt="Facebook" className="w-6 h-6" />, url: 'https://web.facebook.com/MalariaYouthKE' },
+            { name: 'X', icon: <img src="/twitter.png" alt="X" className="w-6 h-6" />, url: 'https://x.com/MalariaYouthKE' },
+            { name: 'Instagram', icon: <img src="/instagram.png" alt="Instagram" className="w-6 h-6" />, url: 'https://www.instagram.com/kenyamalariayouthcorps/' },
+            { name: 'Linkedin', icon: <img src="/linkedin.png" alt="Linkedin" className="w-6 h-6" />, url: 'https://www.linkedin.com/company/kenya-malaria-youth-corps/posts/?feedView=all' },
+            ].map((social, index) => (
+            <a
+              key={index}
+              href={social.url}
+              target={social.name === 'LinkedIn' ? '_blank' : '_self'}
+              rel={social.name === 'LinkedIn' ? 'noopener noreferrer' : ''}
+              className={`w-12 h-12 rounded-full ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-100 hover:bg-gray-200'} flex items-center justify-center transition-all duration-200 transform hover:scale-110`}
+            >
+              <span className="text-xl">{social.icon}</span>
+            </a>
+            ))}
+          </div>
+          </div>
         </div>
+        </div>
+      </div>
       </section>
     );
   };
@@ -809,7 +809,7 @@ const App = () => {
           <div>
             <div className="flex items-center space-x-3 mb-6">
               <img 
-                src="https://github.com/user-attachments/assets/df89cc9f-23c1-4b12-aee7-8d7c78987e31" 
+                src="\kemya.png" 
                 alt="Kenya Malaria Youth Corps Logo"
                 className="w-16 h-16 object-contain mb-6"
               />
@@ -820,10 +820,10 @@ const App = () => {
             </p>
             <div className="flex space-x-4">
               {[
-                { name: 'Facebook', icon: '📘', url: '#' },
-                { name: 'Twitter', icon: '🐦', url: '#' },
-                { name: 'Instagram', icon: '📸', url: '#' },
-                { name: 'LinkedIn', icon: '💼', url: 'https://www.linkedin.com/company/kenya-malaria-youth-corps/' }
+                 { name: 'Facebook', icon: <img src="/facebook.png" alt="Facebook" className="w-6 h-6" />, url: 'https://web.facebook.com/MalariaYouthKE' },
+            { name: 'X', icon: <img src="/twitter.png" alt="X" className="w-6 h-6" />, url: 'https://x.com/MalariaYouthKE' },
+            { name: 'Instagram', icon: <img src="/instagram.png" alt="Instagram" className="w-6 h-6" />, url: 'https://www.instagram.com/kenyamalariayouthcorps/' },
+            { name: 'Linkedin', icon: <img src="/linkedin.png" alt="Linkedin" className="w-6 h-6" />, url: 'https://www.linkedin.com/company/kenya-malaria-youth-corps/posts/?feedView=all' },
               ].map((social, index) => (
                 <a
                   key={index}
