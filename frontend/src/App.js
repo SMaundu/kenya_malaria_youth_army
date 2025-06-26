@@ -758,17 +758,20 @@ const App = () => {
                 </h3>
                 <div className="flex space-x-4">
                   {[
-                    { name: 'Facebook', icon: '📘' },
-                    { name: 'Twitter', icon: '🐦' },
-                    { name: 'Instagram', icon: '📸' },
-                    { name: 'LinkedIn', icon: '💼' }
+                    { name: 'Facebook', icon: '📘', url: '#' },
+                    { name: 'Twitter', icon: '🐦', url: '#' },
+                    { name: 'Instagram', icon: '📸', url: '#' },
+                    { name: 'LinkedIn', icon: '💼', url: 'https://www.linkedin.com/company/kenya-malaria-youth-corps/' }
                   ].map((social, index) => (
-                    <button
+                    <a
                       key={index}
+                      href={social.url}
+                      target={social.name === 'LinkedIn' ? '_blank' : '_self'}
+                      rel={social.name === 'LinkedIn' ? 'noopener noreferrer' : ''}
                       className={`w-12 h-12 rounded-full ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-100 hover:bg-gray-200'} flex items-center justify-center transition-all duration-200 transform hover:scale-110`}
                     >
                       <span className="text-xl">{social.icon}</span>
-                    </button>
+                    </a>
                   ))}
                 </div>
               </div>
