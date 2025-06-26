@@ -788,9 +788,11 @@ const App = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-red-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">K</span>
-              </div>
+              <img 
+                src="https://github.com/user-attachments/assets/df89cc9f-23c1-4b12-aee7-8d7c78987e31" 
+                alt="Kenya Malaria Youth Corps Logo"
+                className="w-16 h-16 object-contain mb-6"
+              />
               <span className="text-xl font-bold">Kenya Malaria Youth Corps</span>
             </div>
             <p className="text-gray-300 mb-6">
