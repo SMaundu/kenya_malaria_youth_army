@@ -733,7 +733,12 @@ const App = () => {
                     </div>
                     <div>
                       <div className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>Phone</div>
-                      <div className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>+254 706 655 274</div>
+                      <a 
+                        href="tel:+254706655274"
+                        className={`${darkMode ? 'text-gray-300 hover:text-green-400' : 'text-gray-600 hover:text-green-600'} transition-colors duration-200`}
+                      >
+                        +254 706 655 274
+                      </a>
                     </div>
                   </div>
                   
