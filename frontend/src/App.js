@@ -721,7 +721,7 @@ const App = () => {
                     </div>
                     <div>
                       <div className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>Email</div>
-                      <div className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>info@kenyamalariayouth.org</div>
+                      <div className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>info@malariayouth.ke</div>
                     </div>
                   </div>
                   
