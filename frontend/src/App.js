@@ -721,7 +721,12 @@ const App = () => {
                     </div>
                     <div>
                       <div className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>Email</div>
-                      <div className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>info@malariayouth.ke</div>
+                      <a 
+                        href="mailto:info@malariayouth.ke"
+                        className={`${darkMode ? 'text-gray-300 hover:text-green-400' : 'text-gray-600 hover:text-green-600'} transition-colors duration-200`}
+                      >
+                        info@malariayouth.ke
+                      </a>
                     </div>
                   </div>
                   
