@@ -37,6 +37,13 @@ const App = () => {
       
       <div className="relative z-10 container mx-auto px-6 py-20 flex flex-col justify-center min-h-screen">
         <div className="max-w-4xl mx-auto text-center">
+          <div className="flex justify-center mb-8">
+            <img 
+              src="https://github.com/user-attachments/assets/df89cc9f-23c1-4b12-aee7-8d7c78987e31" 
+              alt="Kenya Malaria Youth Corps Logo"
+              className="w-24 h-24 md:w-32 md:h-32 object-contain animate-pulse-custom"
+            />
+          </div>
           <h1 className={`text-5xl lg:text-7xl font-bold mb-6 leading-tight ${darkMode ? 'text-white' : 'text-white'}`}>
             <span className="text-green-400">Unite</span> Against <span className="text-red-400">Malaria</span>
           </h1>
