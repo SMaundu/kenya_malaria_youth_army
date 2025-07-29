@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import BlogSection from './components/BlogSection'; // Adjust path if not in 'components' folder
+import axios from 'axios'; // Import Axios
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
 import './App.css';
 
 // Kenya Malaria Youth Corps Website
@@ -533,70 +536,70 @@ const App = () => {
     );
   };
 
-  // Blog Section Component
-  const BlogSection = () => (
-    <section id="blog" className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className={`text-4xl lg:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-            Latest <span className="text-green-600">Updates</span>
-          </h2>
-          <p className={`text-xl max-w-3xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            Stay informed with health tips, success stories, and upcoming events.
-          </p>
-        </div>
+  // // Blog Section Component
+  // const BlogSection = () => (
+  //   <section id="blog" className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+  //     <div className="container mx-auto px-6">
+  //       <div className="text-center mb-16">
+  //         <h2 className={`text-4xl lg:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+  //           Latest <span className="text-green-600">Updates</span>
+  //         </h2>
+  //         <p className={`text-xl max-w-3xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+  //           Stay informed with health tips, success stories, and upcoming events.
+  //         </p>
+  //       </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              title: '10 Ways to Prevent Malaria in Your Community',
-              excerpt: 'Learn practical prevention methods that every family should know to protect against malaria.',
-              date: 'March 10, 2025',
-              category: 'Health Tips',
-              image: 'https://images.unsplash.com/photo-1586027968952-60cab15e475a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxtYWxhcmlhJTIwcHJldmVudGlvbiUyMHZvbHVudGVlcnN8ZW58MHx8fGdyZWVufDE3NTA5Mjc2MDZ8MA&ixlib=rb-4.1.0&q=85'
-            },
-            {
-              title: 'Success Story: Kibera Youth Malaria Champions',
-              excerpt: 'How young volunteers in Kibera reduced malaria cases by 40% through community education.',
-              date: 'March 8, 2025',
-              category: 'Success Stories',
-              image: 'https://images.pexels.com/photos/5878507/pexels-photo-5878507.jpeg'
-            },
-            {
-              title: 'Upcoming: World Malaria Day 2025',
-              excerpt: 'Join us for nationwide events and activities as we commemorate World Malaria Day.',
-              date: 'March 5, 2025',
-              category: 'Events',
-              image: 'https://images.unsplash.com/photo-1648731232061-b5016716fcb6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHwyfHx5b3V0aCUyMGFjdGl2aXNtJTIwQWZyaWNhfGVufDB8fHxncmVlbnwxNzUwOTI3NTkxfDA&ixlib=rb-4.1.0&q=85'
-            }
-          ].map((post, index) => (
-            <article key={index} className={`rounded-2xl overflow-hidden ${darkMode ? 'bg-gray-700' : 'bg-gray-50'} shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2`}>
-              <img 
-                src={post.image} 
-                alt={post.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-green-600 text-sm font-medium">{post.category}</span>
-                  <span className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>{post.date}</span>
-                </div>
-                <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-                  {post.title}
-                </h3>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
-                  {post.excerpt}
-                </p>
-                <button className="text-green-600 hover:text-green-700 font-medium transition-colors duration-200">
-                  Read More →
-                </button>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  //       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  //         {[
+  //           {
+  //             title: '10 Ways to Prevent Malaria in Your Community',
+  //             excerpt: 'Learn practical prevention methods that every family should know to protect against malaria.',
+  //             date: 'March 10, 2025',
+  //             category: 'Health Tips',
+  //             image: 'https://images.unsplash.com/photo-1586027968952-60cab15e475a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxtYWxhcmlhJTIwcHJldmVudGlvbiUyMHZvbHVudGVlcnN8ZW58MHx8fGdyZWVufDE3NTA5Mjc2MDZ8MA&ixlib=rb-4.1.0&q=85'
+  //           },
+  //           {
+  //             title: 'Success Story: Kibera Youth Malaria Champions',
+  //             excerpt: 'How young volunteers in Kibera reduced malaria cases by 40% through community education.',
+  //             date: 'March 8, 2025',
+  //             category: 'Success Stories',
+  //             image: 'https://images.pexels.com/photos/5878507/pexels-photo-5878507.jpeg'
+  //           },
+  //           {
+  //             title: 'Upcoming: World Malaria Day 2025',
+  //             excerpt: 'Join us for nationwide events and activities as we commemorate World Malaria Day.',
+  //             date: 'March 5, 2025',
+  //             category: 'Events',
+  //             image: 'https://images.unsplash.com/photo-1648731232061-b5016716fcb6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHwyfHx5b3V0aCUyMGFjdGl2aXNtJTIwQWZyaWNhfGVufDB8fHxncmVlbnwxNzUwOTI3NTkxfDA&ixlib=rb-4.1.0&q=85'
+  //           }
+  //         ].map((post, index) => (
+  //           <article key={index} className={`rounded-2xl overflow-hidden ${darkMode ? 'bg-gray-700' : 'bg-gray-50'} shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2`}>
+  //             <img 
+  //               src={post.image} 
+  //               alt={post.title}
+  //               className="w-full h-48 object-cover"
+  //             />
+  //             <div className="p-6">
+  //               <div className="flex items-center justify-between mb-3">
+  //                 <span className="text-green-600 text-sm font-medium">{post.category}</span>
+  //                 <span className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>{post.date}</span>
+  //               </div>
+  //               <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+  //                 {post.title}
+  //               </h3>
+  //               <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
+  //                 {post.excerpt}
+  //               </p>
+  //               <button className="text-green-600 hover:text-green-700 font-medium transition-colors duration-200">
+  //                 Read More →
+  //               </button>
+  //             </div>
+  //           </article>
+  //         ))}
+  //       </div>
+  //     </div>
+  //   </section>
+  // );
 
   // Contact Section Component
   const ContactSection = () => {
@@ -885,7 +888,7 @@ const App = () => {
         
         <div className="border-t border-gray-700 pt-8 text-center">
           <p className="text-gray-300">
-            © 2024 Kenya Malaria Youth Corps. All rights reserved. | 
+            © 2025 Kenya Malaria Youth Corps. All rights reserved. | 
             <span className="text-green-400"> Together, we can eliminate malaria.</span>
           </p>
         </div>
@@ -901,7 +904,7 @@ const App = () => {
       <ImpactSection />
       <AdvocacySection />
       <GetInvolvedSection />
-      <BlogSection />
+      <BlogSection darkMode={darkMode} />
       <ContactSection />
       <Footer />
     </div>
