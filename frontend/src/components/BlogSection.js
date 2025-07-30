@@ -10,7 +10,7 @@ const BlogSection = ({ darkMode }) => {
   const [error, setError] = useState(null);
 
   // Strapi API URL for blog posts, with 'populate=image' to include image data
-  const STRAPI_API_URL = 'http://localhost:1337/api/blog-posts?populate=image';
+  const STRAPI_API_URL = 'http://localhost:1337/api/blog-posts?populate=image'; 
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
@@ -20,6 +20,7 @@ const BlogSection = ({ darkMode }) => {
         
         // Determine the correct data array from the API response.
         // It could be directly 'response.data' or nested under 'response.data.data'.
+        // This handles cases where Strapi returns { data: [...] } or just [...]
         const apiResponseData = Array.isArray(response.data.data) ? response.data.data : response.data;
         console.log("Raw API Response Data (from React component):", apiResponseData); 
 
@@ -30,45 +31,58 @@ const BlogSection = ({ darkMode }) => {
 
         // Transform the raw API data into a format suitable for your component
         const transformedPosts = apiResponseData
-          .map(post => {
+          .map(item => { // Changed 'post' to 'item' for consistency with previous debugging
             // Add a guard clause to prevent crashes from malformed or empty posts.
             // This can happen if an entry in Strapi is corrupted or incomplete.
-            if (!post || !post.attributes) {
-              console.warn("Skipping a malformed blog post object from API:", post);
+            if (!item || (!item.attributes && !item.id)) { // Check for id or attributes
+              console.warn("Skipping a malformed blog post object from API:", item);
               return null;
             }
 
-          const { id, attributes } = post;
-          console.log("Processing item:", post);
-          console.log("Item attributes:", attributes);
+            // Strapi v4 typically nests fields under 'attributes'.
+            // If your API is returning flat, 'item.attributes' might be undefined.
+            // We'll try to get attributes, or use the item directly if flat.
+            const attributes = item.attributes || item; // Use item directly if attributes is missing
 
-          // Format the date for display
-          const rawDate = attributes.date || new Date().toISOString();
-          const formattedDate = new Date(rawDate).toLocaleDateString('en-US', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
-          });
+            // Format the date for display
+            const rawDate = attributes.date || new Date().toISOString();
+            const formattedDate = new Date(rawDate).toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
 
-          console.log("Item image data (from API):", attributes.image); // <--- THIS IS THE KEY LOG TO WATCH
+            // Handle image URL
+            // Check if image data is nested as an array (multiple media) or single object.
+            // Based on previous debugging, it was item.image?.url. Let's be robust.
+            let imageUrl = attributes.image?.url; // For flat image object directly on attributes
 
-          // Strapi's media field can be single or multiple. The schema shows 'multiple: true'.
-          // So, `attributes.image.data` will be an array of image objects. We'll take the first one.
-          const imageUrl = attributes.image?.data?.[0]?.attributes?.url;
+            // If image is a relation (common in Strapi v4), it might be attributes.image.data.attributes.url
+            if (!imageUrl && attributes.image?.data) {
+                // Check if it's a single image or an array of images
+                if (Array.isArray(attributes.image.data)) {
+                    imageUrl = attributes.image.data[0]?.attributes?.url; // Take the first image if multiple
+                } else {
+                    imageUrl = attributes.image.data.attributes?.url; // Single image object
+                }
+            }
 
-          return {
-            id: id,
-            // The field name in Strapi is "Title" (capital T).
-            title: attributes.Title || 'Untitled Blog Post',
-            excerpt: attributes.excerpt || 'No excerpt available.',
-            date: formattedDate, 
-            category: attributes.category || 'Uncategorized',
-            image: imageUrl
-                   ? `http://localhost:1337${imageUrl}`
-                   : `https://placehold.co/400x250/cccccc/333333?text=Image+Missing`,
-          };
-        })
-        .filter(Boolean); // Remove any null entries that were skipped.
+
+            return {
+              id: item.id, // ID is usually directly on the item
+              // The field name in Strapi is "Title" (capital T) or "title" (lowercase t)?
+              // We'll try 'title' first, then 'Title'
+              title: attributes.title || attributes.Title || 'Untitled Blog Post', 
+              excerpt: attributes.excerpt || 'No excerpt available.', 
+              date: formattedDate, 
+              category: attributes.category || 'Uncategorized', 
+              
+              image: imageUrl 
+                     ? `http://localhost:1337${imageUrl}` 
+                     : `https://placehold.co/400x250/cccccc/333333?text=Image+Missing`,
+            };
+          })
+          .filter(Boolean); // Remove any null entries that were skipped.
 
         setBlogPosts(transformedPosts);
 
